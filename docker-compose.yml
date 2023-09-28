@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  deciusservice:
+    container_name: agilityhealthradarservice
+    image: agilityhealthradar.azurecr.io/agilityhealthradarservice
+    build:
+      args:
+        - APP_PORT=${APP_PORT}
+        - APP_NAME=${APP_NAME}
+      context: .
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${APP_ENV}
+      
+
